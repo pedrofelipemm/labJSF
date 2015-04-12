@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <ui:composition template="/pages/templates/template.xhtml"
 	xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="content">
-
-<!-- 		<p:fileUpload fileUploadListener="#{imageMB.handleFileUpload}" sizeLimit="1048576"  -->
-<!-- 			auto="true" multiple="true" invalidSizeMessage="#{mensagens['primefaces.file.upload.invalid.size']}" /> -->
-
+		<h:form id="fileUploadForm" prependId="false" enctype="multipart/form-data">
+	
+			<h:inputFile value="#{imageMB.imagem}" ></h:inputFile>
+			<h:commandButton action="#{imageMB.uploadImage}" value="#{mensagens['enviar']}" />
+				
+		</h:form>
    	</ui:define>
 </ui:composition>
